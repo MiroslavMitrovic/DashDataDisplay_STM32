@@ -1089,7 +1089,28 @@
       <eAnnotations xmi:id="_btcTMYUgEe27B8LJ_I5ChA" source="uml2.diagrams"/>
       <ownedRule xmi:id="_Ogk9UIXxEe26QvuLI5dKPw" name="DesignDecision_01" constrainedElement="_btcTMIUgEe27B8LJ_I5ChA">
         <ownedComment xmi:id="_baKe4IXxEe26QvuLI5dKPw" annotatedElement="_Ogk9UIXxEe26QvuLI5dKPw">
-          <body>Ignition ON/OFF signal, Oil Pressure and Oil Temperature sensors will be processed by ADC component on MCU</body>
+          <body>&lt;p>&#xD;
+    Ignition&amp;nbsp;ON/OFF&amp;nbsp;signal,&amp;nbsp;Oil&amp;nbsp;Pressure&amp;nbsp;and&amp;nbsp;Oil&amp;nbsp;Temperature&amp;nbsp;sensors&amp;nbsp;will&amp;nbsp;be&amp;nbsp;processed&amp;nbsp;by&amp;nbsp;ADC&amp;nbsp;component&amp;nbsp;on&amp;nbsp;MCU.&#xD;
+&lt;/p>&lt;br />&#xD;
+&lt;br />&#xD;
+&lt;table title=&quot;&quot; cellspacing=&quot;0&quot; cellpadding=&quot;2&quot; width=&quot;85%&quot; border=&quot;1&quot;>&#xD;
+    &lt;tbody>&#xD;
+        &lt;tr>&#xD;
+            &lt;td>&#xD;
+                qwe&#xD;
+            &lt;/td>&#xD;
+            &lt;td>&#xD;
+            &lt;/td>&#xD;
+        &lt;/tr>&#xD;
+        &lt;tr>&#xD;
+            &lt;td>&#xD;
+            &lt;/td>&#xD;
+            &lt;td>&#xD;
+            &lt;/td>&#xD;
+        &lt;/tr>&#xD;
+    &lt;/tbody>&#xD;
+&lt;/table>&lt;br />&#xD;
+&lt;br /></body>
         </ownedComment>
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_OglkYIXxEe26QvuLI5dKPw">
           <language>Analysis</language>
