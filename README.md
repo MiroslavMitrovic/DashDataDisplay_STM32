@@ -32,3 +32,8 @@ This SW shall output the collected data to the LCD controller via I2C/UART/CAN p
 - Manifold Air Temperature
 - Manifold Air Pressure
 - Battery voltage 
+
+## Requirements 
+- Requirements are available in(SRS document) ./Design/Requirements/SW_REQUIREMENT_SPECIFICATION_DOCUMENT.docx
+## Architecture
+- Architecture Diagrams are available in /Design/ArchitectureDiagrams/
