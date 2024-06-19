@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=VCC Pin=TP21-TP?
+Removed Pin From Net: NetName=+5 Pin=TP31-TP?
+Removed Member From Class: ClassName=PowerSupply Member=TP21
+Removed Member From Class: ClassName=PowerSupply Member=TP31

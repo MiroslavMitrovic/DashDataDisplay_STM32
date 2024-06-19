@@ -1,0 +1,3 @@
+Added Component: Designator=TP11(Test_point)
+Add component (AddParameter): Name = "Value"; Value = "Test point"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=PowerSupply Member=Component TP11 Test point

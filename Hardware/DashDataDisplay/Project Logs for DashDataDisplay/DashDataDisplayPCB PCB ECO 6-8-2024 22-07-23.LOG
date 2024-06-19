@@ -1,0 +1,14 @@
+Added Component: Designator=U31(1N5819HW-7-F_DIO)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Diodes Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Component: Designator=U41(1N5819HW-7-F_DIO)
+Add component (AddParameter): Name = "Mfr_Name"; Value = "Diodes Inc"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RefDes"; Value = "RefDes"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Type"; Value = "Type"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetL11_1 Pin=U31-1
+Added Pin To Net: NetName=GND Pin=U31-2
+Added Pin To Net: NetName=NetL21_1 Pin=U41-1
+Added Pin To Net: NetName=GND Pin=U41-2
+Added Member To Class: ClassName=PowerSupply Member=Component U31 1N5819HW-7-F
+Added Member To Class: ClassName=PowerSupply Member=Component U41 1N5819HW-7-F

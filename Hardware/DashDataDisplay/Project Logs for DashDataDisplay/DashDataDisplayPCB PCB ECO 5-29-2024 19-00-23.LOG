@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=NetJ38_1 Pin=U15-78
+Removed Pin From Net: NetName=NetJ38_2 Pin=U15-79
+Change Component Footprint: Designator=J38 Old Footprint=MOLEX KK 0022272021 New Footprint=HDRV2W66P0X254_1X2_467X244X1044P
+Change Component Comment : Designator=J38 Old Comment=0022272021 New Comment=87527-2
+Change component parameters: Designator = "J38" ("J38"); Footprint = "MOLEX KK 0022272021"; UniqueID = "\BHWOLJMZ" ("\BHWOLJMZ")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = "87527-2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/87527-2/te-connectivity?region=nac"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F87527%7FH%7Fpdf%7FEnglish%7FENG_CD_87527_H.pdf%7F87527-2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "10.439mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "TE Connectivity"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "87527-2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "571-875272"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/TE-Connectivity/87527-2?qs=ZDXmSm13593hsB4j%252B6gMfg%3D%3D"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetJ38_2 Pin=U15-78
+Added Pin To Net: NetName=NetJ38_1 Pin=U15-79

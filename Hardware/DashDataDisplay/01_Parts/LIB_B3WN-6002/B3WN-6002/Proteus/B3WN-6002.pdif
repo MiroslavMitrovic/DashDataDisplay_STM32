@@ -1,0 +1,107 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "B3WN-6002"
+   (description "IP67 Black Button Tact Switch, SPST-NO 50 mA @ 24 V dc 4mm")
+   (family "SWI")
+   (package "B3WN6002")
+   (attribute "Datasheet Link" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-b3wn.pdf")
+   (attribute "Geometry.Height" "13.2mm")
+   (attribute "Mouser Part Number" "653-B3WN-6002")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Omron-Electronics/B3WN-6002?qs=CX134%252BdLMDH3t3DGk60Xxw%3D%3D")
+   (attribute "Manufacturer_Name" "Omron Electronics")
+   (attribute "Manufacturer_Part_Number" "B3WN-6002")
+   (gate
+    (symbol "B3WN-6002")
+    (pin "COM" 1 PS)
+    (pin "NO" 2 PS)
+   )
+  )
+  (symbol "B3WN-6002"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 700 100) (pt 700 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "B3WN6002"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -6.5 4)
+      (pt 1.5 4)
+      (pt 1.5 -4)
+      (pt -6.5 -4)
+      (pt -6.5 4))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -6.5 4)
+      (pt 1.5 4)
+      (pt 1.5 -4)
+      (pt -6.5 -4)
+      (pt -6.5 4))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -7.5 5)
+      (pt 3.2 5)
+      (pt 3.2 -5)
+      (pt -7.5 -5)
+      (pt -7.5 5))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt 2 0)
+      (arc (pt 2.000 0.000) (pt 2.000 -0.100) (pt 2.200 0.100) (start 180.0) (sweep -180.0))
+      (pt 2.2 0)
+      (arc (pt 2.200 0.000) (pt 2.000 -0.100) (pt 2.200 0.100) (start 180.0) (sweep .0))
+      (pt 2 0))))
+   (leg 1 (pt 0.000 0.000) (padstack 0))
+   (leg 2 (pt -5.000 0.000) (padstack 0))
+   (padstack 0
+    (hole 1.1)
+    (plated true)
+    (pad (layer TCOP) (round 1.650))
+    (pad (layer INNER) (round 1.650))
+    (pad (layer BCOP) (round 1.650))
+   )
+   (model "B3WN-6002.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

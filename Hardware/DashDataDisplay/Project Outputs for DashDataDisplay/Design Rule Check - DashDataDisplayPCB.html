@@ -1,0 +1,849 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD24\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">6/19/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">12:06:43</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc" class="file"><acronym title="D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc">D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">40</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">PCB Health Issues:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">120</td></tr>
+</table>
+</td>
+</table><a name="IDL2P2JOTCYIECEQ3BRXVPLCVWUNPIL1CTLGKFP2HYDEITOR0AKXVP"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5VW1NTWA0MANLNM2P2XOBCQZ5JW0L2XN5YV3SYJLBWFQAG5KQ0OL">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOAT3R4GTGJVCOOUUVIC52TWUKIOQNPROK3TVD1KB3WEDNBEONLJC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBPBI4G0GNYQCH2X4XRJ2YT3KMCKY2VPJLI3J33H3BAUGGVQMZYQL">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2ZA5XLX4F5O4JESBZTYNKVVHRHTIJLLQD3AL3MO11VJBYRVPQEOI">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDXLQF1IA20N2PHN0VRCUJ4AT34I2J5HZAFTLX2FBLJV5QL5JYIVEN">Width Constraint (Min=0.127mm) (Max=0.254mm) (Preferred=0.127mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNIMBSUJ2ES0SMXYWWDI2QUN10EGZ3IMZWVCYAAGDXZVCWRO3L2GP">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKHSCLCSXPRLILD0SFQQVOQHTCOFOCFOOC5L15MM3XGPCUCN2PWTO">Minimum Annular Ring (Minimum=0.14mm) (All)</a></td>
+<td class="column2">20</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLWV1URX1NPARLDIAGCZPQP311OZJFYN3VLGXPLNQX5D1R0V4QLO">Hole Size Constraint (Min=0.15mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQV4G0C3T2U3LCYCEJIBZ2GTKPPPSSYZUPAP4RJBXYLGVBHXZCTLO">Hole To Hole Clearance (Gap=0.5mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDHEWNZIMNI5BCJSOBPGZIDML4JCAUW0WYJU5HEGSSRXLJEFA2L5K">Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDP2GSRO2AHU4KMOEW5ZSHUSUQ4JH0EWDAMOFEVLGXAX0YIGOJBL2N">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</a></td>
+<td class="column2">20</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCKOYBQKGNPEXC3B1LHGF4HVEECXM1YSHQZ1XRHOB0JYQSKKRQYVP">Silk to Silk (Clearance=0.15mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKOKS4BFQRF2TIJ31RU4WNTAISCFQLW0ZREEENIBPGUNV2VWJURNI">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDWKMLFLHJIVWUKIA0SHGTLC2YJMNYE4NFZZBF4HMQKRXGCC5LO4GB">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZG5VNVYJWN4GM50ASCVE1N3MEBFIG50MPBJWF1OV1T0YDX5UAYLB">Height Constraint (Min=0mm) (Max=300mm) (Prefered=300mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">40</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">PCB Health Issues</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZH0LB151GS2UN2FYDEORLHM5XNU0DUJATPFUXPGQ3XRCATRU4G">Micro-Segments (Board)</a></td>
+<td class="column2">80</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCUPQPZK3WUH2ONEMPXO5OVVSXE2N0CBBVMWE54FKPZSWQUJZBIBH">Micro-Segments (Copper)</a></td>
+<td class="column2">40</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">120</td>
+</tr>
+</table><br><a name="IDTYZD3VQKEKRRL2FU3GVIUIS40D3W1YVLQNJN1BJMZBVDQDKFFQCI"><h2>Rule Violations</h2></a><a name="IDKHSCLCSXPRLILD0SFQQVOQHTCOFOCFOOC5L15MM3XGPCUCN2PWTO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Annular Ring (Minimum=0.14mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6140.576mil|Location2.X=6145.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6140.576mil|Location2.X=6145.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-1(130.63mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5240.576mil|Location2.X=5245.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5240.576mil|Location2.X=5245.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-10(107.77mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5140.576mil|Location2.X=5145.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5140.576mil|Location2.X=5145.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-11(105.23mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5040.576mil|Location2.X=5045.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5040.576mil|Location2.X=5045.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-12(102.69mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4940.576mil|Location2.X=4945.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4940.576mil|Location2.X=4945.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-13(100.15mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4840.576mil|Location2.X=4845.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4840.576mil|Location2.X=4845.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-14(97.61mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4740.576mil|Location2.X=4745.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4740.576mil|Location2.X=4745.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-15(95.07mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4640.576mil|Location2.X=4645.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4640.576mil|Location2.X=4645.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-16(92.53mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.576mil|Location2.X=4545.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4540.576mil|Location2.X=4545.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-17(89.99mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4440.576mil|Location2.X=4445.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4440.576mil|Location2.X=4445.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-18(87.45mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4340.576mil|Location2.X=4345.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4340.576mil|Location2.X=4345.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-19(84.91mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6040.576mil|Location2.X=6045.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6040.576mil|Location2.X=6045.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-2(128.09mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4240.576mil|Location2.X=4245.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4240.576mil|Location2.X=4245.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-20(82.37mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5940.576mil|Location2.X=5945.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5940.576mil|Location2.X=5945.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-3(125.55mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5840.576mil|Location2.X=5845.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5840.576mil|Location2.X=5845.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-4(123.01mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5740.576mil|Location2.X=5745.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5740.576mil|Location2.X=5745.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-5(120.47mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5640.576mil|Location2.X=5645.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5640.576mil|Location2.X=5645.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-6(117.93mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5540.576mil|Location2.X=5545.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5540.576mil|Location2.X=5545.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-7(115.39mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5440.576mil|Location2.X=5445.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5440.576mil|Location2.X=5445.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-8(112.85mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5340.576mil|Location2.X=5345.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5340.576mil|Location2.X=5345.251mil|Location1.Y=4792.151mil|Location2.Y=4796.825mil|Absolute=True">Minimum Annular Ring: (No Ring) Pad LCD14-9(110.31mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDP2GSRO2AHU4KMOEW5ZSHUSUQ4JH0EWDAMOFEVLGXAX0YIGOJBL2N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4456.422mil|Location2.X=4463.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4456.422mil|Location2.X=4463.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D16-1(88.138mm,89.466mm) on Top Layer And Track (87.884mm,90.262mm)(88.138mm,90.516mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4456.422mil|Location2.X=4463.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4456.422mil|Location2.X=4463.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D16-1(88.138mm,89.466mm) on Top Layer And Track (87.884mm,90.262mm)(88.392mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4476.422mil|Location2.X=4483.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4476.422mil|Location2.X=4483.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D16-1(88.138mm,89.466mm) on Top Layer And Track (88.138mm,90.516mm)(88.392mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4466.422mil|Location2.X=4473.578mil|Location1.Y=4575.379mil|Location2.Y=4582.534mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4466.422mil|Location2.X=4473.578mil|Location1.Y=4575.379mil|Location2.Y=4582.534mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D16-2(88.138mm,91.566mm) on Top Layer And Track (88.138mm,90.516mm)(88.138mm,90.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5226.422mil|Location2.X=5233.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5226.422mil|Location2.X=5233.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D26-1(107.696mm,89.466mm) on Top Layer And Track (107.442mm,90.262mm)(107.696mm,90.516mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5226.422mil|Location2.X=5233.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5226.422mil|Location2.X=5233.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D26-1(107.696mm,89.466mm) on Top Layer And Track (107.442mm,90.262mm)(107.95mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5246.422mil|Location2.X=5253.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5246.422mil|Location2.X=5253.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D26-1(107.696mm,89.466mm) on Top Layer And Track (107.696mm,90.516mm)(107.95mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.422mil|Location2.X=5243.578mil|Location1.Y=4575.379mil|Location2.Y=4582.534mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.422mil|Location2.X=5243.578mil|Location1.Y=4575.379mil|Location2.Y=4582.534mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D26-2(107.696mm,91.566mm) on Top Layer And Track (107.696mm,90.516mm)(107.696mm,90.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6026.422mil|Location2.X=6033.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6026.422mil|Location2.X=6033.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D36-1(128.016mm,89.466mm) on Top Layer And Track (127.762mm,90.262mm)(128.016mm,90.516mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6026.422mil|Location2.X=6033.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6026.422mil|Location2.X=6033.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D36-1(128.016mm,89.466mm) on Top Layer And Track (127.762mm,90.262mm)(128.27mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6046.422mil|Location2.X=6053.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6046.422mil|Location2.X=6053.578mil|Location1.Y=4544.71mil|Location2.Y=4551.865mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D36-1(128.016mm,89.466mm) on Top Layer And Track (128.016mm,90.516mm)(128.27mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6036.422mil|Location2.X=6043.578mil|Location1.Y=4575.379mil|Location2.Y=4582.534mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6036.422mil|Location2.X=6043.578mil|Location1.Y=4575.379mil|Location2.Y=4582.534mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.121mm &lt; 0.15mm) Between Pad D36-2(128.016mm,91.566mm) on Top Layer And Track (128.016mm,90.516mm)(128.016mm,90.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6793.989mil|Location2.X=6798.926mil|Location1.Y=4780.15mil|Location2.Y=4785.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6793.989mil|Location2.X=6798.926mil|Location1.Y=4780.15mil|Location2.Y=4785.087mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-21(144.63mm,96.38mm) on Multi-Layer And Track (147.23mm,28.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6679.758mil|Location2.X=6684.695mil|Location1.Y=4894.382mil|Location2.Y=4899.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6679.758mil|Location2.X=6684.695mil|Location1.Y=4894.382mil|Location2.Y=4899.319mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-21(144.63mm,96.38mm) on Multi-Layer And Track (54.23mm,98.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3132.569mil|Location2.X=3137.506mil|Location1.Y=4768.454mil|Location2.Y=4773.391mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3132.569mil|Location2.X=3137.506mil|Location1.Y=4768.454mil|Location2.Y=4773.391mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-22(56.63mm,96.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(54.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215.191mil|Location2.X=3220.128mil|Location1.Y=4894.382mil|Location2.Y=4899.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3215.191mil|Location2.X=3220.128mil|Location1.Y=4894.382mil|Location2.Y=4899.319mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-22(56.63mm,96.38mm) on Multi-Layer And Track (54.23mm,98.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6793.989mil|Location2.X=6798.926mil|Location1.Y=2221.095mil|Location2.Y=2226.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6793.989mil|Location2.X=6798.926mil|Location1.Y=2221.095mil|Location2.Y=2226.032mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-23(144.63mm,31.38mm) on Multi-Layer And Track (147.23mm,28.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6651.214mil|Location2.X=6656.151mil|Location1.Y=2138.472mil|Location2.Y=2143.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6651.214mil|Location2.X=6656.151mil|Location1.Y=2138.472mil|Location2.Y=2143.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-23(144.63mm,31.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(147.23mm,28.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3186.647mil|Location2.X=3191.584mil|Location1.Y=2138.472mil|Location2.Y=2143.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3186.647mil|Location2.X=3191.584mil|Location1.Y=2138.472mil|Location2.Y=2143.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-24(56.63mm,31.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(147.23mm,28.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3132.569mil|Location2.X=3137.506mil|Location1.Y=2209.398mil|Location2.Y=2214.335mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3132.569mil|Location2.X=3137.506mil|Location1.Y=2209.398mil|Location2.Y=2214.335mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.15mm) Between Pad LCD14-24(56.63mm,31.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(54.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDGDHPZCPRLMIJMA3MT5BS0QMHIIFS4DNM3UYS4PNUTQ3VMDRK4F5E"><h2>PCB Health Issues</h2></a><a name="IDZH0LB151GS2UN2FYDEORLHM5XNU0DUJATPFUXPGQ3XRCATRU4G"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="health">Micro-Segments (Board)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Paste P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Solder P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Paste P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Solder P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCUPQPZK3WUH2ONEMPXO5OVVSXE2N0CBBVMWE54FKPZSWQUJZBIBH"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="health">Micro-Segments (Copper)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Top Layer P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=83.27mm|Location2.X=83.27mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=85.81mm|Location2.X=85.81mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=88.35mm|Location2.X=88.35mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=90.89mm|Location2.X=90.89mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=93.43mm|Location2.X=93.43mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.97mm|Location2.X=95.97mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=98.51mm|Location2.X=98.51mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=101.05mm|Location2.X=101.05mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.59mm|Location2.X=103.59mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=106.13mm|Location2.X=106.13mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=108.67mm|Location2.X=108.67mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=111.21mm|Location2.X=111.21mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=113.75mm|Location2.X=113.75mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=116.29mm|Location2.X=116.29mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=118.83mm|Location2.X=118.83mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.37mm|Location2.X=121.37mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=123.91mm|Location2.X=123.91mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=126.45mm|Location2.X=126.45mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=128.99mm|Location2.X=128.99mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=131.53mm|Location2.X=131.53mm|Location1.Y=95.48mm|Location2.Y=95.48mm">Micro-Segment: Region (0 hole(s)) Bottom Layer P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

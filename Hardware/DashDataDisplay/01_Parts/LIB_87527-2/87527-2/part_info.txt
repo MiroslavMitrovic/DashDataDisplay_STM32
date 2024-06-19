@@ -1,0 +1,9 @@
+Manufacturer=TE Connectivity
+PartNumber=87527-2
+PartCategory=Connector
+PackageCategory=Header, Vertical
+PinCount=2
+Version=2.1
+Released=2023-09-15 13:27:32
+Downloaded=2024-05-29 17:57:04
+3D=Y

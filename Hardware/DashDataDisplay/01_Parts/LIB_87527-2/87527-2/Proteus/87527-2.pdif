@@ -1,0 +1,104 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "87527-2"
+   (description "Connector Header Through Hole 2 position 0.100\" (2.54mm)")
+   (family "CON")
+   (package "HDRV2W66P0X254_1X2_467X244X1044P")
+   (attribute "Datasheet Link" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Customer+Drawing%7F87527%7FH%7Fpdf%7FEnglish%7FENG_CD_87527_H.pdf%7F87527-2")
+   (attribute "Geometry.Height" "10.439mm")
+   (attribute "Mouser Part Number" "571-875272")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/TE-Connectivity/87527-2?qs=ZDXmSm13593hsB4j%252B6gMfg%3D%3D")
+   (attribute "Manufacturer_Name" "TE Connectivity")
+   (attribute "Manufacturer_Part_Number" "87527-2")
+   (gate
+    (symbol "87527-2")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+   )
+  )
+  (symbol "87527-2"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 600 100) (pt 600 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "HDRV2W66P0X254_1X2_467X244X1044P"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt 1.38 -1.532)
+      (pt -3.921 -1.532)
+      (pt -3.921 1.533)
+      (pt 1.38 1.533)
+      (pt 1.38 -1.532))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt 1.13 -1.282)
+      (pt -3.671 -1.282)
+      (pt -3.671 1.283)
+      (pt 1.13 1.283)
+      (pt 1.13 -1.282))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 0 -1.282)
+      (pt -3.671 -1.282)
+      (pt -3.671 1.283)
+      (pt 1.13 1.283)
+      (pt 1.13 0))))
+   (leg 1 (pt 0 0) (padstack 1))
+   (leg 2 (pt -2.54 0) (padstack 0))
+   (padstack 0
+    (hole 1.15)
+    (plated true)
+    (pad (layer TCOP) (round 1.725))
+    (pad (layer INNER) (round 1.725))
+    (pad (layer BCOP) (round 1.725))
+   )
+   (padstack 1
+    (hole 1.15)
+    (plated true)
+    (pad (layer TCOP) (square 1.725))
+    (pad (layer INNER) (round 1.725))
+    (pad (layer BCOP) (square 1.725))
+   )
+   (model "87527-2.stp"
+    (euler 0 0 0)
+    (offset -1.2699999809265137 0 2.75)
+   )
+  )
+ )
+)

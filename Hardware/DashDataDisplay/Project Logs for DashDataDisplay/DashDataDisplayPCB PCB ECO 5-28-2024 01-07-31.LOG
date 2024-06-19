@@ -1,0 +1,4 @@
+Added Component: Designator=(Test_point)
+Add component (AddParameter): Name = "Value"; Value = "Test point"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+5 Pin=-TP?
+Added Member To Class: ClassName=PowerSupply Member=Component  Test point
