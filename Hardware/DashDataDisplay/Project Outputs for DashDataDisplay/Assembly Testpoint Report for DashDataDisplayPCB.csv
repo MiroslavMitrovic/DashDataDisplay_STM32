@@ -1,0 +1,5 @@
+"Net","Name","X Coord","Y Coord","Side","Hole Size","Type"
+"NetLCD14_3","R14-2","5595mil","555mil","Bottom","27.165mil","Through hole"
+"GND","C41-2","1045mil","3540mil","Bottom","30mil","Through hole"
+"VBAT","C21-1","1040mil","3244mil","Bottom","30mil","Through hole"
+"VCC","C31-1","165mil","3244mil","Bottom","30mil","Through hole"
