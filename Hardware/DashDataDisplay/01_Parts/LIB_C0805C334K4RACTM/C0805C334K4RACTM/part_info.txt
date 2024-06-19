@@ -1,0 +1,9 @@
+Manufacturer=KEMET
+PartNumber=C0805C334K4RACTM
+PartCategory=Capacitor
+PackageCategory=Other
+PinCount=2
+Version=6.1
+Released=2022-03-24 23:09:44
+Downloaded=2024-06-19 10:14:19
+3D=Y

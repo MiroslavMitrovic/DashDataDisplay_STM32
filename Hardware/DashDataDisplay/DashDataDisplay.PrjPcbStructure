@@ -1,0 +1,9 @@
+Record=TopLevelDocument|FileName=ADCCircuit.SchDoc|SheetNumber=6
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=ButtonCircuit.SchDoc|SheetNumber=9
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=CanTrcvCircuit.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=Connector.SchDoc|SheetNumber=8
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=LCDCircuit.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=MCUCircuit.SchDoc|SheetNumber=5
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=PowerSupply.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=SensorCircuit.SchDoc|SheetNumber=2
+Record=NoMainPathDocument|SourceDocument=ADCCircuit.SchDoc|FileName=ThermoCoupleCircuit.SchDoc|SheetNumber=7

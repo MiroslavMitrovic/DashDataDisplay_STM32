@@ -1,0 +1,11 @@
+Added Component: Designator=LCD14(GLCD128*64)
+Added Pin To Net: NetName=GND Pin=LCD14-1
+Added Pin To Net: NetName=+5 Pin=LCD14-2
+Added Pin To Net: NetName=NetLCD14_3 Pin=LCD14-3
+Added Pin To Net: NetName=NetLCD14_4 Pin=LCD14-4
+Added Pin To Net: NetName=NetLCD14_5 Pin=LCD14-5
+Added Pin To Net: NetName=NetLCD14_6 Pin=LCD14-6
+Added Pin To Net: NetName=GND Pin=LCD14-15
+Added Pin To Net: NetName=+5 Pin=LCD14-19
+Added Pin To Net: NetName=GND Pin=LCD14-20
+Added Member To Class: ClassName=LCDCircuit Member=Component LCD14 glcd128*64

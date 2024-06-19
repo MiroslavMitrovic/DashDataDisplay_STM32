@@ -1,0 +1,9 @@
+Change Component Comment : Designator=TP11 Old Comment=Test point New Comment=VBAT
+Added Component: Designator=TP21(Test_point)
+Add component (AddParameter): Name = "Value"; Value = "Test point"; VariantName = "[No Variations]"
+Added Component: Designator=TP31(Test_point)
+Add component (AddParameter): Name = "Value"; Value = "Test point"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC Pin=TP21-TP?
+Added Pin To Net: NetName=+5 Pin=TP31-TP?
+Added Member To Class: ClassName=PowerSupply Member=Component TP21 Test point
+Added Member To Class: ClassName=PowerSupply Member=Component TP31 Test point

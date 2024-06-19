@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=GND Pin=J28-6
+Change Component Footprint: Designator=J28 Old Footprint=MOLEX KK 0022272061 New Footprint=FTSH-105-XX-YYY-DV-A
+Change Component Comment : Designator=J28 Old Comment=0022272061 New Comment=FTSH-105-01-L-DV-A
+Change component parameters: Designator = "J28" ("J28"); Footprint = "MOLEX KK 0022272061"; UniqueID = "\MGGYWRNB" ("\MGGYWRNB")
+Change component parameters (AddParameter): Name = "Arrow Part Number"; Value = "FTSH-105-01-L-DV-A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/ftsh-105-01-l-dv-a/samtec"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Datasheet Link"; Value = "http://suddendocs.samtec.com/prints/ftsh-1xx-xx-xxx-dv-xxx-xxx-mkt.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "SAMTEC"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "FTSH-105-01-L-DV-A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Part Number"; Value = "200-FTSH10501LDVA"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/Samtec/FTSH-105-01-L-DV-A?qs=vqM95g%252BRBeykLJELFbssPw%3D%3D"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J28-3
+Added Pin To Net: NetName=GND Pin=J28-5
+Added Pin To Net: NetName=NetC235_2 Pin=J28-10
+Added Pin To Net: NetName=NetJ28_4 Pin=J28-4
+Added Pin To Net: NetName=NetJ28_4 Pin=U15-76
+Added Net: Name=NetJ28_4

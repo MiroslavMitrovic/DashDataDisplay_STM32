@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP B3WN-6002
+D IP67 Black Button Tact Switch, SPST-NO 50 mA @ 24 V dc 4mm
+K
+F http://omronfs.omron.com/en_US/ecb/products/pdf/en-b3wn.pdf
+$ENDCMP
+#
+#End Doc Library

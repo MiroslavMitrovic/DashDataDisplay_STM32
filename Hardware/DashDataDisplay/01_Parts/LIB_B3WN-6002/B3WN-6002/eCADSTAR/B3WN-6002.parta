@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_520373"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-06-04-08:31:01)
+    (utime 2023-06-22-10:55:39)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "B3WN-6002")
+)
+
+
+(pinAssign "ECS_520373"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-06-04-08:31:01)
+    (utime 2023-06-22-10:55:39)
+    (interface
+        (port "1" (symbPinId 1) (portName "COM") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "NO") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_520373")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "B3WN-6002")
+)
+
+
+(part "B3WN-6002"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2018-06-04-08:31:01)
+    (utime 2023-06-22-10:55:39)
+    (packageRef "B3WN-6002")
+    (pinAssignRef "ECS_520373")
+    (interface
+        (port "1" (symbPinId 1) (portName "COM") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "NO") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "YES")
+    (property "refDesPrefix" "S")
+    (property "description" "IP67 Black Button Tact Switch, SPST-NO 50 mA @ 24 V dc 4mm")
+    (property "Mouser_Part_Number" "653-B3WN-6002")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Omron-Electronics/B3WN-6002?qs=CX134%252BdLMDH3t3DGk60Xxw%3D%3D")
+    (property "Manufacturer_Name" "Omron Electronics")
+    (property "Manufacturer_Part_Number" "B3WN-6002")
+    (property "Datasheet_Link" "http://omronfs.omron.com/en_US/ecb/products/pdf/en-b3wn.pdf")
+    (property "compAreaTopHeight" 13.2)
+)
+
+

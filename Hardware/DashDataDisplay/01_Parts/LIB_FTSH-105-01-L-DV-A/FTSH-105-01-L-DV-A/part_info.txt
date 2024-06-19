@@ -1,0 +1,9 @@
+Manufacturer=SAMTEC
+PartNumber=FTSH-105-01-L-DV-A
+PartCategory=Connector
+PackageCategory=Other
+PinCount=10
+Version=1.1
+Released=2020-06-19 13:54:45
+Downloaded=2024-05-29 17:27:48
+3D=N

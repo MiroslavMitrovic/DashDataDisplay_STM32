@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'PC817XNNIP1B'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Sharp Microelectronics", "PC817XNNIP1B" (!) = "", "SOP254P960X420-4N", "Small Outline Packages", "852-PC817XNNIP1B", "https://www.mouser.co.uk/ProductDetail/Sharp-Microelectronics/PC817XNNIP1B?qs=rrS6PyfT74dJvnx7366b6Q%3D%3D", "Transistor Output Optocouplers Photocoupler", "", "4.2 mm"
+END_PART
+
+END.
