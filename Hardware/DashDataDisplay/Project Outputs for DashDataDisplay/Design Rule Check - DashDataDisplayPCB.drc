@@ -1,9 +1,9 @@
 Protel Design System Design Rule Check
 PCB File : D:\Projects\git\STM\DashDataDisplay_STM32\Hardware\DashDataDisplay\DashDataDisplayPCB.PcbDoc
 Date     : 6/19/2024
-Time     : 12:06:43
+Time     : 23:55:52
 
-Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
@@ -15,207 +15,207 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=0.127mm) (Max=0.254mm) (Preferred=0.127mm) (All)
+Processing Rule : Width Constraint (Min=5mil) (Max=10mil) (Preferred=5mil) (All)
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
 Rule Violations :0
 
-Processing Rule : Minimum Annular Ring (Minimum=0.14mm) (All)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-1(130.63mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-10(107.77mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-11(105.23mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-12(102.69mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-13(100.15mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-14(97.61mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-15(95.07mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-16(92.53mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-17(89.99mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-18(87.45mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-19(84.91mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-2(128.09mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-20(82.37mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-3(125.55mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-4(123.01mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-5(120.47mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-6(117.93mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-7(115.39mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-8(112.85mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
-   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-9(110.31mm,96.38mm) on Multi-Layer (Annular Ring missing on Top Layer)
+Processing Rule : Minimum Annular Ring (Minimum=5.512mil) (All)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-1(5142.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-10(4242.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-11(4142.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-12(4042.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-13(3942.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-14(3842.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-15(3742.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-16(3642.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-17(3542.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-18(3442.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-19(3342.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-2(5042.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-20(3242.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-3(4942.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-4(4842.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-5(4742.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-6(4642.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-7(4542.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-8(4442.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
+   Violation between Minimum Annular Ring: (No Ring) Pad LCD14-9(4342.913mil,3794.488mil) on Multi-Layer (Annular Ring missing on Top Layer)
 Rule Violations :20
 
-Processing Rule : Hole Size Constraint (Min=0.15mm) (Max=6.3mm) (All)
+Processing Rule : Hole Size Constraint (Min=5.906mil) (Max=248.031mil) (All)
 Rule Violations :0
 
-Processing Rule : Hole To Hole Clearance (Gap=0.5mm) (All),(All)
+Processing Rule : Hole To Hole Clearance (Gap=19.685mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=0.1mm) (All),(All)
+Processing Rule : Minimum Solder Mask Sliver (Gap=3.937mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D16-1(88.138mm,89.466mm) on Top Layer And Track (87.884mm,90.262mm)(88.138mm,90.516mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D16-1(88.138mm,89.466mm) on Top Layer And Track (87.884mm,90.262mm)(88.392mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D16-1(88.138mm,89.466mm) on Top Layer And Track (88.138mm,90.516mm)(88.392mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D16-2(88.138mm,91.566mm) on Top Layer And Track (88.138mm,90.516mm)(88.138mm,90.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D26-1(107.696mm,89.466mm) on Top Layer And Track (107.442mm,90.262mm)(107.696mm,90.516mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D26-1(107.696mm,89.466mm) on Top Layer And Track (107.442mm,90.262mm)(107.95mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D26-1(107.696mm,89.466mm) on Top Layer And Track (107.696mm,90.516mm)(107.95mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D26-2(107.696mm,91.566mm) on Top Layer And Track (107.696mm,90.516mm)(107.696mm,90.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D36-1(128.016mm,89.466mm) on Top Layer And Track (127.762mm,90.262mm)(128.016mm,90.516mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D36-1(128.016mm,89.466mm) on Top Layer And Track (127.762mm,90.262mm)(128.27mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D36-1(128.016mm,89.466mm) on Top Layer And Track (128.016mm,90.516mm)(128.27mm,90.262mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (0.121mm < 0.15mm) Between Pad D36-2(128.016mm,91.566mm) on Top Layer And Track (128.016mm,90.516mm)(128.016mm,90.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.121mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-21(144.63mm,96.38mm) on Multi-Layer And Track (147.23mm,28.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-21(144.63mm,96.38mm) on Multi-Layer And Track (54.23mm,98.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-22(56.63mm,96.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(54.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-22(56.63mm,96.38mm) on Multi-Layer And Track (54.23mm,98.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-23(144.63mm,31.38mm) on Multi-Layer And Track (147.23mm,28.98mm)(147.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-23(144.63mm,31.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(147.23mm,28.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-24(56.63mm,31.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(147.23mm,28.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
-   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.15mm) Between Pad LCD14-24(56.63mm,31.38mm) on Multi-Layer And Track (54.23mm,28.98mm)(54.23mm,98.98mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+Processing Rule : Silk To Solder Mask (Clearance=5.906mil) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D16-1(3470mil,3522.283mil) on Top Layer And Track (3460mil,3553.622mil)(3470mil,3563.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D16-1(3470mil,3522.283mil) on Top Layer And Track (3460mil,3553.622mil)(3480mil,3553.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D16-1(3470mil,3522.283mil) on Top Layer And Track (3470mil,3563.622mil)(3480mil,3553.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D16-2(3470mil,3604.961mil) on Top Layer And Track (3470mil,3563.622mil)(3470mil,3573.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D26-1(4240mil,3522.283mil) on Top Layer And Track (4230mil,3553.622mil)(4240mil,3563.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D26-1(4240mil,3522.283mil) on Top Layer And Track (4230mil,3553.622mil)(4250mil,3553.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D26-1(4240mil,3522.283mil) on Top Layer And Track (4240mil,3563.622mil)(4250mil,3553.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D26-2(4240mil,3604.961mil) on Top Layer And Track (4240mil,3563.622mil)(4240mil,3573.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D36-1(5040mil,3522.283mil) on Top Layer And Track (5030mil,3553.622mil)(5040mil,3563.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D36-1(5040mil,3522.283mil) on Top Layer And Track (5030mil,3553.622mil)(5050mil,3553.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D36-1(5040mil,3522.283mil) on Top Layer And Track (5040mil,3563.622mil)(5050mil,3553.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (4.764mil < 5.906mil) Between Pad D36-2(5040mil,3604.961mil) on Top Layer And Track (5040mil,3563.622mil)(5040mil,3573.622mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.764mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-21(5694.095mil,3794.488mil) on Multi-Layer And Track (2135.037mil,3896.85mil)(5796.457mil,3896.85mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-21(5694.095mil,3794.488mil) on Multi-Layer And Track (5796.457mil,1140.94mil)(5796.457mil,3896.85mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-22(2229.528mil,3794.488mil) on Multi-Layer And Track (2135.037mil,1140.94mil)(2135.037mil,3896.85mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-22(2229.528mil,3794.488mil) on Multi-Layer And Track (2135.037mil,3896.85mil)(5796.457mil,3896.85mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-23(5694.095mil,1235.432mil) on Multi-Layer And Track (2135.037mil,1140.94mil)(5796.457mil,1140.94mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-23(5694.095mil,1235.432mil) on Multi-Layer And Track (5796.457mil,1140.94mil)(5796.457mil,3896.85mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-24(2229.528mil,1235.432mil) on Multi-Layer And Track (2135.037mil,1140.94mil)(2135.037mil,3896.85mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 5.906mil) Between Pad LCD14-24(2229.528mil,1235.432mil) on Multi-Layer And Track (2135.037mil,1140.94mil)(5796.457mil,1140.94mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]
 Rule Violations :20
 
-Processing Rule : Silk to Silk (Clearance=0.15mm) (All),(All)
+Processing Rule : Silk to Silk (Clearance=5.906mil) (All),(All)
 Rule Violations :0
 
-Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
 Rule Violations :0
 
-Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+Processing Rule : Board Clearance Constraint (Gap=0mil) (All)
 Rule Violations :0
 
-Processing Rule : Height Constraint (Min=0mm) (Max=300mm) (Prefered=300mm) (All)
+Processing Rule : Height Constraint (Min=0mil) (Max=11811.024mil) (Prefered=11811.024mil) (All)
 Rule Violations :0
 
 PCB Health Issue Category : Micro-Segments (Board)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Paste P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Solder P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3278.346mil,3759.055mil) P2(3278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3378.346mil,3759.055mil) P2(3378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3478.346mil,3759.055mil) P2(3478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3578.346mil,3759.055mil) P2(3578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3678.346mil,3759.055mil) P2(3678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3778.346mil,3759.055mil) P2(3778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3878.346mil,3759.055mil) P2(3878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(3978.346mil,3759.055mil) P2(3978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4078.346mil,3759.055mil) P2(4078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4178.346mil,3759.055mil) P2(4178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4278.346mil,3759.055mil) P2(4278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4378.346mil,3759.055mil) P2(4378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4478.346mil,3759.055mil) P2(4478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4578.346mil,3759.055mil) P2(4578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4678.346mil,3759.055mil) P2(4678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4778.346mil,3759.055mil) P2(4778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4878.346mil,3759.055mil) P2(4878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(4978.346mil,3759.055mil) P2(4978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(5078.346mil,3759.055mil) P2(5078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Paste P1(5178.346mil,3759.055mil) P2(5178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3278.346mil,3759.055mil) P2(3278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3378.346mil,3759.055mil) P2(3378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3478.346mil,3759.055mil) P2(3478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3578.346mil,3759.055mil) P2(3578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3678.346mil,3759.055mil) P2(3678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3778.346mil,3759.055mil) P2(3778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3878.346mil,3759.055mil) P2(3878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(3978.346mil,3759.055mil) P2(3978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4078.346mil,3759.055mil) P2(4078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4178.346mil,3759.055mil) P2(4178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4278.346mil,3759.055mil) P2(4278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4378.346mil,3759.055mil) P2(4378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4478.346mil,3759.055mil) P2(4478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4578.346mil,3759.055mil) P2(4578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4678.346mil,3759.055mil) P2(4678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4778.346mil,3759.055mil) P2(4778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4878.346mil,3759.055mil) P2(4878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(4978.346mil,3759.055mil) P2(4978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(5078.346mil,3759.055mil) P2(5078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Solder P1(5178.346mil,3759.055mil) P2(5178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3278.346mil,3759.055mil) P2(3278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3378.346mil,3759.055mil) P2(3378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3478.346mil,3759.055mil) P2(3478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3578.346mil,3759.055mil) P2(3578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3678.346mil,3759.055mil) P2(3678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3778.346mil,3759.055mil) P2(3778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3878.346mil,3759.055mil) P2(3878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(3978.346mil,3759.055mil) P2(3978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4078.346mil,3759.055mil) P2(4078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4178.346mil,3759.055mil) P2(4178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4278.346mil,3759.055mil) P2(4278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4378.346mil,3759.055mil) P2(4378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4478.346mil,3759.055mil) P2(4478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4578.346mil,3759.055mil) P2(4578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4678.346mil,3759.055mil) P2(4678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4778.346mil,3759.055mil) P2(4778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4878.346mil,3759.055mil) P2(4878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(4978.346mil,3759.055mil) P2(4978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(5078.346mil,3759.055mil) P2(5078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Paste P1(5178.346mil,3759.055mil) P2(5178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3278.346mil,3759.055mil) P2(3278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3378.346mil,3759.055mil) P2(3378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3478.346mil,3759.055mil) P2(3478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3578.346mil,3759.055mil) P2(3578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3678.346mil,3759.055mil) P2(3678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3778.346mil,3759.055mil) P2(3778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3878.346mil,3759.055mil) P2(3878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(3978.346mil,3759.055mil) P2(3978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4078.346mil,3759.055mil) P2(4078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4178.346mil,3759.055mil) P2(4178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4278.346mil,3759.055mil) P2(4278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4378.346mil,3759.055mil) P2(4378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4478.346mil,3759.055mil) P2(4478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4578.346mil,3759.055mil) P2(4578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4678.346mil,3759.055mil) P2(4678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4778.346mil,3759.055mil) P2(4778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4878.346mil,3759.055mil) P2(4878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(4978.346mil,3759.055mil) P2(4978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(5078.346mil,3759.055mil) P2(5078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Solder P1(5178.346mil,3759.055mil) P2(5178.346mil,3759.055mil)
 Issues :80
 
 PCB Health Issue Category : Micro-Segments (Copper)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Top Layer P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(83.27mm,95.48mm) P2(83.27mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(85.81mm,95.48mm) P2(85.81mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(88.35mm,95.48mm) P2(88.35mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(90.89mm,95.48mm) P2(90.89mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(93.43mm,95.48mm) P2(93.43mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(95.97mm,95.48mm) P2(95.97mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(98.51mm,95.48mm) P2(98.51mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(101.05mm,95.48mm) P2(101.05mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(103.59mm,95.48mm) P2(103.59mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(106.13mm,95.48mm) P2(106.13mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(108.67mm,95.48mm) P2(108.67mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(111.21mm,95.48mm) P2(111.21mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(113.75mm,95.48mm) P2(113.75mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(116.29mm,95.48mm) P2(116.29mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(118.83mm,95.48mm) P2(118.83mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(121.37mm,95.48mm) P2(121.37mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(123.91mm,95.48mm) P2(123.91mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(126.45mm,95.48mm) P2(126.45mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(128.99mm,95.48mm) P2(128.99mm,95.48mm)
-   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(131.53mm,95.48mm) P2(131.53mm,95.48mm)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(5178.346mil,3759.055mil) P2(5178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3278.346mil,3759.055mil) P2(3278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3378.346mil,3759.055mil) P2(3378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3478.346mil,3759.055mil) P2(3478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3578.346mil,3759.055mil) P2(3578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3678.346mil,3759.055mil) P2(3678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3778.346mil,3759.055mil) P2(3778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3878.346mil,3759.055mil) P2(3878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(3978.346mil,3759.055mil) P2(3978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4078.346mil,3759.055mil) P2(4078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4178.346mil,3759.055mil) P2(4178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4278.346mil,3759.055mil) P2(4278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4378.346mil,3759.055mil) P2(4378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4478.346mil,3759.055mil) P2(4478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4578.346mil,3759.055mil) P2(4578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4678.346mil,3759.055mil) P2(4678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4778.346mil,3759.055mil) P2(4778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4878.346mil,3759.055mil) P2(4878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(4978.346mil,3759.055mil) P2(4978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Top Layer P1(5078.346mil,3759.055mil) P2(5078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3278.346mil,3759.055mil) P2(3278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3378.346mil,3759.055mil) P2(3378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3478.346mil,3759.055mil) P2(3478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3578.346mil,3759.055mil) P2(3578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3678.346mil,3759.055mil) P2(3678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3778.346mil,3759.055mil) P2(3778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3878.346mil,3759.055mil) P2(3878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(3978.346mil,3759.055mil) P2(3978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4078.346mil,3759.055mil) P2(4078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4178.346mil,3759.055mil) P2(4178.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4278.346mil,3759.055mil) P2(4278.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4378.346mil,3759.055mil) P2(4378.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4478.346mil,3759.055mil) P2(4478.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4578.346mil,3759.055mil) P2(4578.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4678.346mil,3759.055mil) P2(4678.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4778.346mil,3759.055mil) P2(4778.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4878.346mil,3759.055mil) P2(4878.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(4978.346mil,3759.055mil) P2(4978.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(5078.346mil,3759.055mil) P2(5078.346mil,3759.055mil)
+   Micro-Segment: Region (0 hole(s)) Bottom Layer P1(5178.346mil,3759.055mil) P2(5178.346mil,3759.055mil)
 Issues :40
 
 
 Violations Detected : 40
 Waived Violations : 0
 PCB Health Issues : 120
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02

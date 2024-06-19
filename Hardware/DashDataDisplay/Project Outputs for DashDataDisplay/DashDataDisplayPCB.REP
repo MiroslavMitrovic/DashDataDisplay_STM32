@@ -1,0 +1,492 @@
+*************************************************************
+FileName = DashDataDisplayPCB.GBR
+AutoAperture = True
+*************************************************************
+Generating : Dielectric 1
+      File : DashDataDisplayPCB.1
+
+    Adding Layer      : Dielectric 1
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Multi-Layer
+      File : DashDataDisplayPCB.GML
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D64
+    D66
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+*************************************************************
+
+*************************************************************
+Generating : Bottom Courtyard
+      File : DashDataDisplayPCB.GM16
+
+    Adding Layer      : Bottom Courtyard
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 15
+      File : DashDataDisplayPCB.GM15
+
+    Adding Layer      : Mechanical 15
+
+
+Used DCodes :
+    D11
+    D13
+    D14
+    D83
+    D84
+    D85
+*************************************************************
+
+*************************************************************
+Generating : Bottom Assembly
+      File : DashDataDisplayPCB.GM14
+
+    Adding Layer      : Bottom Assembly
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 13
+      File : DashDataDisplayPCB.GM13
+
+    Adding Layer      : Mechanical 13
+
+
+Used DCodes :
+    D10
+    D13
+    D17
+    D82
+    D83
+*************************************************************
+
+*************************************************************
+Generating : Bottom 3D Body
+      File : DashDataDisplayPCB.GM5
+
+    Adding Layer      : Bottom 3D Body
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top 3D Body
+      File : DashDataDisplayPCB.GM4
+
+    Adding Layer      : Top 3D Body
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top Courtyard
+      File : DashDataDisplayPCB.GM3
+
+    Adding Layer      : Top Courtyard
+
+
+Used DCodes :
+    D10
+*************************************************************
+
+*************************************************************
+Generating : Top Assembly
+      File : DashDataDisplayPCB.GM2
+
+    Adding Layer      : Top Assembly
+
+
+Used DCodes :
+    D10
+*************************************************************
+
+*************************************************************
+Generating : Mechanical 1
+      File : DashDataDisplayPCB.GM1
+
+    Adding Layer      : Mechanical 1
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Keep-Out Layer
+      File : DashDataDisplayPCB.GKO
+
+    Adding Layer      : Keep-Out Layer
+
+
+Used DCodes :
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : DashDataDisplayPCB.GBP
+
+    Adding Layer      : Bottom Paste
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : DashDataDisplayPCB.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+*************************************************************
+
+*************************************************************
+Generating : Bottom Solder
+      File : DashDataDisplayPCB.GBS
+
+    Adding Layer      : Bottom Solder
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : DashDataDisplayPCB.GTS
+
+    Adding Layer      : Top Solder
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D25
+    D27
+    D28
+    D32
+    D33
+    D35
+    D36
+    D37
+    D38
+    D40
+    D41
+    D42
+    D43
+    D44
+    D45
+    D46
+    D47
+    D48
+    D49
+    D50
+    D51
+    D52
+    D53
+    D54
+    D55
+    D56
+    D57
+    D58
+    D59
+    D60
+    D61
+    D62
+    D63
+    D64
+    D65
+    D66
+    D67
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : DashDataDisplayPCB.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+    D10
+    D13
+    D15
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : DashDataDisplayPCB.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+    D13
+    D14
+    D15
+    D16
+    D17
+*************************************************************
+
+*************************************************************
+Generating : Top Pad Master
+      File : DashDataDisplayPCB.GPT
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D63
+    D64
+    D66
+    D68
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : DashDataDisplayPCB.GPB
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D63
+    D64
+    D66
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : DashDataDisplayPCB.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D63
+    D64
+    D66
+    D69
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+    D80
+    D81
+*************************************************************
+
+*************************************************************
+Generating : Top Layer
+      File : DashDataDisplayPCB.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D14
+    D18
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D63
+    D64
+    D66
+    D68
+    D69
+    D70
+    D71
+    D72
+    D73
+    D74
+    D75
+    D76
+    D77
+    D78
+    D79
+*************************************************************
+
+*************************************************************
+Generating : Drill Drawing
+      File : DashDataDisplayPCB.GD1
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Drawing
+
+
+Used DCodes :
+    D69
+    D86
+    D87
+*************************************************************
+
+*************************************************************
+Generating : Drill Guide
+      File : DashDataDisplayPCB.GG1
+
+    Adding Drill Pair : Top Layer-Bottom Layer
+
+    Adding Layer      : Drill Guide
+
+
+Used DCodes :
+    D69
+*************************************************************
+
+*************************************************************
+Generating : Profile
+      File : DashDataDisplayPCB.GM
+
+
+Used DCodes :
+    D88
+*************************************************************
+

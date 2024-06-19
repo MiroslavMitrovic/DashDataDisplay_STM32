@@ -1,0 +1,36 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [DashDataDisplay.PrjPcb]
+   Generated File[DashDataDisplayPCB.GTO]
+   Generated File[DashDataDisplayPCB.GTP]
+   Generated File[DashDataDisplayPCB.GTS]
+   Generated File[DashDataDisplayPCB.GTL]
+   Generated File[DashDataDisplayPCB.GBL]
+   Generated File[DashDataDisplayPCB.GBS]
+   Generated File[DashDataDisplayPCB.GBP]
+   Generated File[DashDataDisplayPCB.GBO]
+   Generated File[DashDataDisplayPCB.GM1]
+   Generated File[DashDataDisplayPCB.GM2]
+   Generated File[DashDataDisplayPCB.GM3]
+   Generated File[DashDataDisplayPCB.GM4]
+   Generated File[DashDataDisplayPCB.GM5]
+   Generated File[DashDataDisplayPCB.GM13]
+   Generated File[DashDataDisplayPCB.GM14]
+   Generated File[DashDataDisplayPCB.GM15]
+   Generated File[DashDataDisplayPCB.GM16]
+   Generated File[DashDataDisplayPCB.GKO]
+   Generated File[DashDataDisplayPCB.GPT]
+   Generated File[DashDataDisplayPCB.GPB]
+   Generated File[DashDataDisplayPCB.1]
+   Generated File[DashDataDisplayPCB.GML]
+   Generated File[DashDataDisplayPCB.GD1]
+   Generated File[DashDataDisplayPCB.GG1]
+   Generated File[DashDataDisplayPCB.GM]
+   Generated File[DashDataDisplayPCB.EXTREP]
+   Generated File[DashDataDisplayPCB.REP]
+
+
+Files Generated   : 27
+Documents Printed : 0
+
+Finished Output Generation At 00:03:04 On 6/20/2024
