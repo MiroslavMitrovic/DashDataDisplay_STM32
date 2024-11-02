@@ -1978,6 +1978,7 @@
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_jXHMoY4bEe2-4ZcTATPrlg">
           <verticalGuides xmi:id="_IiqQMNseEe2v-5V_-UkELA" position="1345"/>
+          <verticalGuides xmi:id="_Le1vgAPFEe6XLNS0-27VrA" position="-2"/>
         </styles>
         <element xsi:nil="true"/>
         <edges xmi:id="_6Hzd4NrVEe2hltg-wvNqjA" element="_6HyPwNrVEe2hltg-wvNqjA" source="_eLrlYI4iEe2-4ZcTATPrlg" target="_jCidYNrTEe2hltg-wvNqjA">
@@ -2269,7 +2270,7 @@
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_P9OipOOVEe2-OurHhoKVdA" y="-186"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_P9OioeOVEe2-OurHhoKVdA" fontName="Segoe UI" routing="Rectilinear" lineColor="0" lineWidth="3" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9OiouOVEe2-OurHhoKVdA" points="[40, 779, 84520, -7304]$[40, 5505, 84520, -2578]$[-84441, 5505, 39, -2578]$[-84441, 7463, 39, -620]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P9OiouOVEe2-OurHhoKVdA" points="[357, 779, 83886, -7304]$[357, 5532, 83886, -2551]$[-83807, 5532, -278, -2551]$[-83807, 7463, -278, -620]"/>
         </edges>
         <edges xmi:id="_XBoZgOOVEe2-OurHhoKVdA" element="_XBhr0OOVEe2-OurHhoKVdA" source="_iX9OAI4hEe2-4ZcTATPrlg" target="_rj09IOOTEe2-OurHhoKVdA">
           <children xmi:id="_XBoZg-OVEe2-OurHhoKVdA" visible="false" type="NameLabel">
