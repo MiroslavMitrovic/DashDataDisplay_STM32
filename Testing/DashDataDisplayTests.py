@@ -12,7 +12,13 @@ from CANTests import CANTesting
 from RelayBoard import RelayBoard
 from SignalSimulator import SignalSimulator
 
-#todo -- create class to be called from main file !
+"""Information 
+    Connections to sensor simulation are following :
+    - Channel 0 - Oil Pressure Sensor (function controlled)
+    - Channel 1 - EGT Right (setpoint voltage of 2.4VDC)
+    - Channel 2 - EGT Left  (setpoint voltage of 2.4VDC)
+    - Channel 3 - Oil Temperature Sensor ((setpoint voltage of 2.5VDC)
+    """
 relayBoard = RelayBoard()
 signalSimulator = SignalSimulator()
 
@@ -165,6 +171,9 @@ def driveSimulation():
                 fg_frequency = convert_vehicle_speed_to_signal(vehicle_speed)
                 fg.FunctionGenerator_SetFrequencyChannel1(fgObj, fg_frequency)
                 signalSimulator.set_voltage_on_sensor(0, calculate_voltage_oil_press_sensor_simulation(calculate_oil_pressure(current_rpm)))
+                signalSimulator.set_voltage_on_sensor(1,2.4)
+                signalSimulator.set_voltage_on_sensor(2, 2.4)
+                signalSimulator.set_voltage_on_sensor(3, 2.5)
                 sleep(0.25)
 
             if i > GearRatio.GEAR_1.value:
@@ -176,7 +185,10 @@ def driveSimulation():
         fg.FunctionGenerator_SetFrequencyChannel1(fgObj, 0)
         fg.FunctionGenerator_ActivateChannels(fgObj, False, False)
         CanTest.close_bus(can_bus)
-
+        signalSimulator.set_voltage_on_sensor(0,0.5)
+        signalSimulator.set_voltage_on_sensor(1, 0.0)
+        signalSimulator.set_voltage_on_sensor(2, 0.0)
+        signalSimulator.set_voltage_on_sensor(3, 0.0)
 def main():
 
     time.sleep(3)

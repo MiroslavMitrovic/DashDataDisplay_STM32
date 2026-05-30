@@ -5,14 +5,13 @@ import time
 
 class SignalSimulator:
     def __init__(self):
-        self.arduino = serial.Serial(port='/dev/ttyUSB1', baudrate=115200, timeout=.1)
+
+        self.arduino = serial.Serial(port='COM5', baudrate=115200, timeout=.1)
         self.command = ""
 
     def check_if_sensor_id_is_valid(self, in_sensor_id: int)->bool:
 
-        if in_sensor_id == range(0,7):
-            return True
-        return False
+        return 0 <= in_sensor_id <= 7
 
     def check_if_requested_voltage_is_valid(self,in_voltage: float)->bool:
 
@@ -44,6 +43,5 @@ class SignalSimulator:
         request_status &= self.check_if_requested_voltage_is_valid(in_voltage)
 
         if request_status:
-            out_string = f"S{in_sensor_id}{in_voltage:.2f}\n"
+            out_string = f"S{in_sensor_id}{in_voltage:.3f}\n"
             self.arduino.write(bytes(out_string, "utf-8"))
-
