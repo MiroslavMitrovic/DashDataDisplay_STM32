@@ -9,7 +9,12 @@ import time
 import can
 from JDS6600 import FunctionGenerator
 from CANTests import CANTesting
+from RelayBoard import RelayBoard
+from SignalSimulator import SignalSimulator
+
 #todo -- create class to be called from main file !
+relayBoard = RelayBoard()
+signalSimulator = SignalSimulator()
 
 GEAR_RATIO_1:float = 5.034042
 GEAR_RATIO_2:float = 3.199118
@@ -21,6 +26,7 @@ DYNAMIC_ROLLING_RADIUS:float = 0.267 # in [m]
 NUMBER_OF_PULSES_PER_ROTATION_VSS:int = 10
 MPS_TO_KPH_RATIO:float = 3.6
 
+OIL_PRESSURE_LIMIT_VAL: float = 3.50
 
 class GearRatio(Enum):
     GEAR_1 = (1, 5.034042)
@@ -75,112 +81,31 @@ def convert_vehicle_speed_to_signal(in_vehicle_speed:int)->int:
 
     return sig_gen_frequency
 
+def calculate_oil_pressure(in_rpm: int) ->float:
+    """Calculate oil pressure based on simple linear function y = kx.
+    return value should be in bar. """
+    k: float = 0.001
+    calculated_oil_pressure: float = k * float(in_rpm)
+    "Clamp oil pressure due to oil pressure relief valve."
+    if calculated_oil_pressure >= 3.5:
+        calculated_oil_pressure = 3.5
+
+    return calculated_oil_pressure
+
+def calculate_voltage_oil_press_sensor_simulation(in_calculated_oil_pressure: float):
+    """Bosch sensor used as a pressure sensor, and has its own characteristic BOSCH_0_261_230_365."""
+    # define c0										0.1f
+    # define c1										8.0e-4f
+    # define SUPPLY_VOLTAGE_VALUE					5.0f
+    c0: float = 0.1
+    c1: float = 0.0008
+    supply_voltage_val: float = 5.0
+
+    calculated_voltage: float = supply_voltage_val * (c1 * 100.0 * in_calculated_oil_pressure + 0.1)
+
+    return calculated_voltage
 
 
-
-arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=.1)
-command = ""
-
-
-def write_read(x):
-    arduino.write(bytes(x, "utf-8"))
-
-    data = arduino.readline()
-    return data
-
-def KL30_ON():
-    value = write_read("R1_ON\n")
-
-def KL30_OFF():
-    value = write_read("R1_OFF\n")
-def KL15_ON():
-    value = write_read("R2_ON\n")
-
-def KL15_OFF():
-    value = write_read("R2_OFF\n")
-
-
-def TurnSignalLeftON():
-    value = write_read("R3_ON\n")
-
-def TurnSignalLeftOFF():
-    value = write_read("R3_OFF\n")
-
-def TurnSignalRightON():
-    value = write_read("R4_ON\n")
-
-def TurnSignalRightOFF():
-    value = write_read("R4_OFF\n")
-
-def HighBeamON():
-    value = write_read("R5_ON\n")
-
-def HighBeamOFF():
-    value = write_read("R5_OFF\n")
-
-def LowBeamON():
-    value = write_read("R6_ON\n")
-
-def LowBeamOFF():
-    value = write_read("R6_OFF\n")
-
-def NeutralON():
-    value = write_read("R7_ON\n")
-
-def NeutralOFF():
-    value = write_read("R7_OFF\n")
-
-
-def TurnSignalLeftTest():
-    for i in range(20):
-        TurnSignalLeftON()
-        time.sleep(0.5)
-        TurnSignalLeftOFF()
-        time.sleep(0.5)
-def TurnSignalRightTest():
-    for i in range(20):
-        TurnSignalRightON()
-        time.sleep(0.5)
-        TurnSignalRightOFF()
-        time.sleep(0.5)
-
-def FaultyTurnSignalLeftTest():
-    for i in range(20):
-        TurnSignalLeftON()
-        time.sleep(0.25)
-        TurnSignalLeftOFF()
-        time.sleep(0.25)
-def FaultyTurnSignalRightTest():
-    for i in range(20):
-        TurnSignalRightON()
-        time.sleep(0.25)
-        TurnSignalRightOFF()
-        time.sleep(0.25)
-
-
-
-def HazardWarningTest():
-    for i in range(20):
-        TurnSignalLeftON()
-        TurnSignalRightON()
-        time.sleep(0.5)
-        TurnSignalLeftOFF()
-        TurnSignalRightOFF()
-        time.sleep(0.5)
-
-def HiBeamTest():
-    for i in range(20):
-        HighBeamON()
-        time.sleep(0.5)
-        HighBeamOFF()
-        time.sleep(0.5)
-
-def LowBeamTest():
-    for i in range(20):
-        LowBeamON()
-        time.sleep(0.5)
-        LowBeamOFF()
-        time.sleep(0.5)
 
 def driveSimulation():
     default_interface = "socketcan" if platform.system() == "Linux" else "pcan"
@@ -204,26 +129,28 @@ def driveSimulation():
         fg.FunctionGenerator_SetWaveformChannel1(fgObj, "cmos")
         fg.FunctionGenerator_SetAmplitudeChannel1(fgObj, 5.0)
         fg.FunctionGenerator_SetDutyCycleChannel1(fgObj, 50.0)
-        NeutralON()
+        relayBoard.NeutralON()
         sleep(5.0)
-        NeutralOFF()
+        relayBoard.NeutralOFF()
         for i in range(1,6):
             ratio = GearRatio(i).ratio
 
             current_rpm: int = 0
             for j in range(180):
                 current_rpm = rpm_offset_drop[0] + j * 100
-                if current_rpm >= 9000:
+                if current_rpm >= 8500:
                     break
                 can_bus = CanTest.set_rpm_test(can_bus, current_rpm)
                 vehicle_speed = calculate_vehicle_speed(current_rpm, ratio)
                 fg_frequency = convert_vehicle_speed_to_signal(vehicle_speed)
                 fg.FunctionGenerator_SetFrequencyChannel1(fgObj, fg_frequency)
+
+                signalSimulator.set_voltage_on_sensor(0, calculate_voltage_oil_press_sensor_simulation(calculate_oil_pressure(current_rpm)))
                 sleep(0.25)
             if i < GearRatio.GEAR_5.value:
                 rpm_offset_drop = calculate_gearshift_rpm_drop(current_rpm,i)
             print("Upshift Performed!")
-        downshift_rpm_threshold:int = 2500
+        downshift_rpm_threshold:int = 3000
         rpm_offset_rise:tuple[int, int] = (current_rpm, 0)
         for i in range(GearRatio.GEAR_5.value, GearRatio.GEAR_1.value - 1, -1):
             ratio = GearRatio(i).ratio
@@ -237,6 +164,7 @@ def driveSimulation():
                 vehicle_speed = calculate_vehicle_speed(current_rpm, ratio)
                 fg_frequency = convert_vehicle_speed_to_signal(vehicle_speed)
                 fg.FunctionGenerator_SetFrequencyChannel1(fgObj, fg_frequency)
+                signalSimulator.set_voltage_on_sensor(0, calculate_voltage_oil_press_sensor_simulation(calculate_oil_pressure(current_rpm)))
                 sleep(0.25)
 
             if i > GearRatio.GEAR_1.value:
@@ -244,6 +172,7 @@ def driveSimulation():
             print("Downshift Performed!")
 
     finally:
+        relayBoard.NeutralON()
         fg.FunctionGenerator_SetFrequencyChannel1(fgObj, 0)
         fg.FunctionGenerator_ActivateChannels(fgObj, False, False)
         CanTest.close_bus(can_bus)
@@ -251,21 +180,21 @@ def driveSimulation():
 def main():
 
     time.sleep(3)
-    KL30_ON()
+    relayBoard.KL30_ON()
     time.sleep(5)
-    KL15_ON()
+    relayBoard.KL15_ON()
     time.sleep(1)
     driveSimulation()
     #HiBeamTest()
     #LowBeamTest()
     #HazardWarningTest()
-    KL15_OFF()
+    relayBoard.KL15_OFF()
     time.sleep(7)
-    KL15_ON()
+    relayBoard.KL15_ON()
     time.sleep(10)
-    KL15_OFF()
+    relayBoard.KL15_OFF()
     time.sleep(5)
-    KL30_OFF()
+    relayBoard.KL30_OFF()
 
 
 
