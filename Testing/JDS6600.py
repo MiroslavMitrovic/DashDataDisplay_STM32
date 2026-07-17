@@ -4,7 +4,7 @@ import time
 class FunctionGenerator:
 
     def FunctionGenerator_Init(self):
-        fg = jds6600.JDS6600(port='/dev/ttyUSB1')
+        fg = jds6600.JDS6600(port='/dev/FUNCTION_GENERATOR')
         fg.connect()
         print("Connected!")
         print(fg.get_channels())

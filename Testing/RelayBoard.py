@@ -5,8 +5,9 @@ import time
 
 class RelayBoard:
     def __init__(self):
-        self.arduino = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=.1)
+        self.arduino = serial.Serial(port='/dev/RELAY_BOARD', baudrate=115200, timeout=.1)
         self.command = ""
+        print("Initializing Relay Board...")
 
 
     def write_read(self, x):

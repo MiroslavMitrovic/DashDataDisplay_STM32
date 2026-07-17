@@ -6,8 +6,9 @@ import time
 class SignalSimulator:
     def __init__(self):
 
-        self.arduino = serial.Serial(port='COM5', baudrate=115200, timeout=.1)
+        self.arduino = serial.Serial(port='/dev/SENSOR_SIMULATOR', baudrate=115200, timeout=.1)
         self.command = ""
+        print("Initializing Signal Simulator...")
 
     def check_if_sensor_id_is_valid(self, in_sensor_id: int)->bool:
 
@@ -27,12 +28,12 @@ class SignalSimulator:
 
     def set_FI_low_voltage_on_sensor(self, in_sensor_id: int):
 
-        out_string = f"S{in_sensor_id}0.30\n"
+        out_string = f"S{in_sensor_id}0.300\n"
         self.arduino.write(bytes(out_string, "utf-8"))
 
     def set_FI_high_voltage_on_sensor(self, in_sensor_id: int):
 
-        out_string = f"S{in_sensor_id}4.80\n"
+        out_string = f"S{in_sensor_id}4.800\n"
         self.arduino.write(bytes(out_string, "utf-8"))
 
 

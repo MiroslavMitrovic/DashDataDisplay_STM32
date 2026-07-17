@@ -11,7 +11,7 @@ from JDS6600 import FunctionGenerator
 from CANTests import CANTesting
 from RelayBoard import RelayBoard
 from SignalSimulator import SignalSimulator
-
+from PowerSupply import PowerSupply
 """Information 
     Connections to sensor simulation are following :
     - Channel 0 - Oil Pressure Sensor (function controlled)
@@ -19,8 +19,7 @@ from SignalSimulator import SignalSimulator
     - Channel 2 - EGT Left  (setpoint voltage of 2.4VDC)
     - Channel 3 - Oil Temperature Sensor ((setpoint voltage of 2.5VDC)
     """
-relayBoard = RelayBoard()
-signalSimulator = SignalSimulator()
+
 
 GEAR_RATIO_1:float = 5.034042
 GEAR_RATIO_2:float = 3.199118
@@ -113,7 +112,7 @@ def calculate_voltage_oil_press_sensor_simulation(in_calculated_oil_pressure: fl
 
 
 
-def driveSimulation():
+def driveSimulation(in_relay_board_obj: RelayBoard):
     default_interface = "socketcan" if platform.system() == "Linux" else "pcan"
     can_interface = os.getenv("CAN_INTERFACE", default_interface)
     default_channel = "PCAN_USBBUS1" if can_interface == "pcan" else "can0"
@@ -122,8 +121,11 @@ def driveSimulation():
     CanTest = CANTesting()
     can_bus = None
     fg = FunctionGenerator()
+    signalSimulator = SignalSimulator()
+    power_supply = PowerSupply()
     fgObj = fg.FunctionGenerator_Init()
     rpm_offset_drop:tuple[int, int] = (0, 0)
+    power_supply.ps_set_normal_battery_voltage()
     try:
         can_bus = CanTest.initialize_can_channel(
             channel=channel_name,
@@ -135,9 +137,10 @@ def driveSimulation():
         fg.FunctionGenerator_SetWaveformChannel1(fgObj, "cmos")
         fg.FunctionGenerator_SetAmplitudeChannel1(fgObj, 5.0)
         fg.FunctionGenerator_SetDutyCycleChannel1(fgObj, 50.0)
-        relayBoard.NeutralON()
+        power_supply.ps_set_normal_charging_voltage()
+        in_relay_board_obj.NeutralON()
         sleep(5.0)
-        relayBoard.NeutralOFF()
+        in_relay_board_obj.NeutralOFF()
         for i in range(1,6):
             ratio = GearRatio(i).ratio
 
@@ -152,15 +155,19 @@ def driveSimulation():
                 fg.FunctionGenerator_SetFrequencyChannel1(fgObj, fg_frequency)
 
                 signalSimulator.set_voltage_on_sensor(0, calculate_voltage_oil_press_sensor_simulation(calculate_oil_pressure(current_rpm)))
+                signalSimulator.set_voltage_on_sensor(1, 2.4)
+                signalSimulator.set_voltage_on_sensor(2, 2.4)
+                signalSimulator.set_voltage_on_sensor(3, 4.5)
                 sleep(0.25)
             if i < GearRatio.GEAR_5.value:
                 rpm_offset_drop = calculate_gearshift_rpm_drop(current_rpm,i)
             print("Upshift Performed!")
         downshift_rpm_threshold:int = 3000
         rpm_offset_rise:tuple[int, int] = (current_rpm, 0)
+        #sleep(1000)
         for i in range(GearRatio.GEAR_5.value, GearRatio.GEAR_1.value - 1, -1):
             ratio = GearRatio(i).ratio
-
+            power_supply.ps_set_low_charging_voltage()
             current_rpm: int = 0
             for j in range(180):
                 current_rpm = rpm_offset_rise[0] - j * 100
@@ -173,7 +180,7 @@ def driveSimulation():
                 signalSimulator.set_voltage_on_sensor(0, calculate_voltage_oil_press_sensor_simulation(calculate_oil_pressure(current_rpm)))
                 signalSimulator.set_voltage_on_sensor(1,2.4)
                 signalSimulator.set_voltage_on_sensor(2, 2.4)
-                signalSimulator.set_voltage_on_sensor(3, 2.5)
+                signalSimulator.set_voltage_on_sensor(3, 4.5)
                 sleep(0.25)
 
             if i > GearRatio.GEAR_1.value:
@@ -181,7 +188,9 @@ def driveSimulation():
             print("Downshift Performed!")
 
     finally:
-        relayBoard.NeutralON()
+        power_supply.ps_set_low_battery_voltage()
+        sleep(10)
+        in_relay_board_obj.NeutralON()
         fg.FunctionGenerator_SetFrequencyChannel1(fgObj, 0)
         fg.FunctionGenerator_ActivateChannels(fgObj, False, False)
         CanTest.close_bus(can_bus)
@@ -190,13 +199,15 @@ def driveSimulation():
         signalSimulator.set_voltage_on_sensor(2, 0.0)
         signalSimulator.set_voltage_on_sensor(3, 0.0)
 def main():
-
+    relayBoard = RelayBoard()
+    power_supply = PowerSupply()
+    power_supply.ps_set_normal_battery_voltage()
     time.sleep(3)
     relayBoard.KL30_ON()
     time.sleep(5)
     relayBoard.KL15_ON()
     time.sleep(1)
-    driveSimulation()
+    driveSimulation(in_relay_board_obj=relayBoard)
     #HiBeamTest()
     #LowBeamTest()
     #HazardWarningTest()
