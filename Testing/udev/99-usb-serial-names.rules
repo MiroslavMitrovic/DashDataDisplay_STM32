@@ -1,0 +1,10 @@
+# DashDataDisplay test equipment on the fixed USB hub.
+# Signal simulator FTDI adapter serial: A5069RR4.
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", ATTRS{serial}=="A5069RR4", SYMLINK+="SENSOR_SIMULATOR", GROUP="plugdev", MODE="0660"
+
+# JDS6600 confirmed by its read-only :r20=0. query.
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", ENV{ID_PATH}=="pci-0000:00:14.0-usb-0:1.2.1.4:1.0", SYMLINK+="FUNCTION_GENERATOR", GROUP="dialout", MODE="0660"
+
+# The remaining CH340 device at this location is the relay board. It does not
+# respond to the PSU or JDS read-only query protocols.
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", ENV{ID_PATH}=="pci-0000:00:14.0-usb-0:1.2.2.2:1.0", SYMLINK+="RELAY_BOARD", GROUP="dialout", MODE="0660"

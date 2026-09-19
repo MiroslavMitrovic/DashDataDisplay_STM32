@@ -1,0 +1,2 @@
+# OWON SPE6205 PSU, confirmed by `*IDN?` on 2026-09-12.
+SUBSYSTEM=="tty", KERNEL=="ttyUSB*", ENV{ID_PATH}=="pci-0000:00:14.0-usb-0:1.2.2.3:1.0", SYMLINK+="POWER_SUPPLY", GROUP="dialout", MODE="0660"

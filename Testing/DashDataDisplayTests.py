@@ -110,6 +110,77 @@ def calculate_voltage_oil_press_sensor_simulation(in_calculated_oil_pressure: fl
 
     return calculated_voltage
 
+def calculate_ignition_angle_simulation(in_rpm: int) -> float:
+    """
+    Calculate nominal ignition advance for a Moto Guzzi V75 engine.
+
+    Approximation based on the center of the ignition-curve tolerance band
+    shown for:
+        Battery voltage: 12 V
+        Ambient temperature: 25 °C
+
+    Args:
+        in_rpm: Engine speed in revolutions per minute.
+
+    Returns:
+        Total ignition advance in crankshaft degrees BTDC.
+    """
+
+    if in_rpm < 0:
+        raise ValueError("RPM cannot be negative")
+
+    rpm = float(in_rpm)
+
+    # Static/idle ignition region.
+    # The low-speed negative section in the scanned graph is not clear
+    # enough to model reliably, so it is clamped to 0 degrees.
+    if rpm <= 1000.0:
+        return 0.0
+
+    # Advance ramp: 1000–4200 RPM
+    #
+    # x is normalized so that:
+    #   x = 0.0 at 1000 RPM
+    #   x = 3.2 at 4200 RPM
+    #
+    # Polynomial passes approximately through:
+    #   1000 RPM ->  0.0°
+    #   2000 RPM ->  9.5°
+    #   3000 RPM -> 19.0°
+    #   4200 RPM -> 30.5°
+    if rpm <= 4200.0:
+        x = (rpm - 1000.0) / 1000.0
+
+        # Horner form:
+        angle = (
+            (
+                0.0118371212 * x
+                - 0.0355113636
+            ) * x
+            + 9.52367424
+        ) * x
+
+        return max(0.0, min(angle, 30.5))
+
+    # High-speed region: 4200–10000 RPM
+    #
+    # Approximate center line:
+    #   4200 RPM  -> 30.5°
+    #   6000 RPM  -> 30.8°
+    #   8000 RPM  -> 30.5°
+    #   10000 RPM -> 29.5°
+    #
+    # Clamp above 10000 RPM to avoid polynomial extrapolation.
+    limited_rpm = min(rpm, 10000.0)
+    x = (limited_rpm - 4200.0) / 1000.0
+
+    angle = (
+        -0.08477011 * x
+        + 0.31925287
+    ) * x + 30.5
+
+    return max(29.5, min(angle, 31.0))
+
 
 
 def driveSimulation(in_relay_board_obj: RelayBoard):
@@ -150,6 +221,9 @@ def driveSimulation(in_relay_board_obj: RelayBoard):
                 if current_rpm >= 8500:
                     break
                 can_bus = CanTest.set_rpm_test(can_bus, current_rpm)
+                can_bus = CanTest.send_ignAdvance_test(
+                    can_bus, calculate_ignition_angle_simulation(current_rpm)
+                )
                 vehicle_speed = calculate_vehicle_speed(current_rpm, ratio)
                 fg_frequency = convert_vehicle_speed_to_signal(vehicle_speed)
                 fg.FunctionGenerator_SetFrequencyChannel1(fgObj, fg_frequency)
@@ -164,7 +238,7 @@ def driveSimulation(in_relay_board_obj: RelayBoard):
             print("Upshift Performed!")
         downshift_rpm_threshold:int = 3000
         rpm_offset_rise:tuple[int, int] = (current_rpm, 0)
-        #sleep(1000)
+        #sleep(500)
         for i in range(GearRatio.GEAR_5.value, GearRatio.GEAR_1.value - 1, -1):
             ratio = GearRatio(i).ratio
             power_supply.ps_set_low_charging_voltage()
@@ -174,6 +248,9 @@ def driveSimulation(in_relay_board_obj: RelayBoard):
                 if current_rpm <= downshift_rpm_threshold:
                     break
                 can_bus = CanTest.set_rpm_test(can_bus, current_rpm)
+                can_bus = CanTest.send_ignAdvance_test(
+                    can_bus, calculate_ignition_angle_simulation(current_rpm)
+                )
                 vehicle_speed = calculate_vehicle_speed(current_rpm, ratio)
                 fg_frequency = convert_vehicle_speed_to_signal(vehicle_speed)
                 fg.FunctionGenerator_SetFrequencyChannel1(fgObj, fg_frequency)

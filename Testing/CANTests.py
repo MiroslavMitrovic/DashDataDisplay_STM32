@@ -220,14 +220,18 @@ class CANTesting:
             f"Unable to send CAN frame on {self.interface}/{self.channel}"
         ) from last_error
 
-    def send_ignAdvance_test(self, bus):
+    def send_ignAdvance_test(self, bus, ignition_advance_angle):
         arbitration_id = 0x5E9
         data = [0x00] * 8
 
-        for i in range(1000):
-            data[6], data[7] = self.split_two_bytes(i)
-            bus = self.send_message(bus, arbitration_id, data)
-            time.sleep(0.02)
+        # DBC adv_deg: signed 16-bit, big-endian, factor 0.1, offset 0.
+        normalized_angle = round(ignition_advance_angle / 0.1)
+        if not -0x8000 <= normalized_angle <= 0x7FFF:
+            raise ValueError("Ignition advance angle is outside the DBC signal range")
+
+        data[6], data[7] = self.split_two_bytes(normalized_angle)
+        bus = self.send_message(bus, arbitration_id, data)
+        time.sleep(0.02)
 
         return bus
 
